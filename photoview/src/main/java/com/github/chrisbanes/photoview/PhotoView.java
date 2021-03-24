@@ -20,6 +20,7 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.net.wifi.aware.AttachCallback;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 
@@ -186,6 +187,14 @@ public class PhotoView extends AppCompatImageView {
         return attacher.getScale();
     }
 
+    public float getMaximumVerticalSpace() {
+        return attacher.getMaximumVerticalSpace();
+    }
+
+    public float getMaximumHorizontalSpace() {
+        return attacher.getMaximumHorizontalSpace();
+    }
+
     public void setAllowParentInterceptOnEdge(boolean allow) {
         attacher.setAllowParentInterceptOnEdge(allow);
     }
@@ -236,6 +245,18 @@ public class PhotoView extends AppCompatImageView {
 
     public void setScale(float scale, float focalX, float focalY, boolean animate) {
         attacher.setScale(scale, focalX, focalY, animate);
+    }
+
+    public void setMaximumHorizontalSpace(float maxSpace) {
+        attacher.setMaximumHorizontalSpace(maxSpace);
+    }
+
+    public void setMaximumVerticalSpace(float maxSpace) {
+        attacher.setMaximumVerticalSpace(maxSpace);
+    }
+
+    public void setFlingListener(OnFlingListener listener) {
+        attacher.setFlingListener(listener);
     }
 
     public void setZoomTransitionDuration(int milliseconds) {
